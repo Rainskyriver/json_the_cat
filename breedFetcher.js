@@ -10,10 +10,11 @@ const fetchBreedDescription = function(breedName, callback) {
     const data = JSON.parse(body);
   
     if (data[0] === undefined) {
-      callback('Invalid cat breed, please try a valid breed');
+      callback('Invalid cat breed, please try a valid breed', null);
+    } else {
+      callback(null, data[0].description.trim());
     }
 
-    callback(null, data[0].description);
   });
 };
 
